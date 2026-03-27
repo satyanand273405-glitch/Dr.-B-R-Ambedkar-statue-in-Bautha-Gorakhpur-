@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Dr. B.R. Ambedkar | Satya's Village | Gorakhpur | Official Village Portal | Dr. B R Ambedkar statue in Bautha | Ambedkar statue in Bautha</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fefaf5;
+      color: #1e2a2e;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    :root {
+      --primary: #c4450c;
+      --primary-dark: #9a2e00;
+      --deep-blue: #0a2f44;
+      --gold: #e6b422;
+      --light-bg: #fffbf5;
+      --card-white: #ffffff;
+      --border-light: #e8dfd4;
+      --special-gold: #f5b042;
+    }
+
+    /* Navbar - Responsive */
+    .navbar {
+      background: var(--deep-blue);
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+    .logo h1 {
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
+      font-weight: 700;
+      color: white;
+    }
+    .logo span {
+      color: var(--gold);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      list-style: none;
+      flex-wrap: wrap;
+      transition: all 0.3s ease;
+    }
+    .nav-links a {
+      color: #f0ede5;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+      padding: 0.5rem 0;
+      font-size: clamp(0.85rem, 3vw, 1rem);
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--gold);
+      border-bottom: 2px solid var(--gold);
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Hero with Ambedkar Photo - Responsive */
+    .hero {
+      background: linear-gradient(135deg, rgba(10,47,68,0.85), rgba(196,69,12,0.75));
+      min-height: auto;
+      padding: 3rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-content {
+      max-width: 900px;
+      width: 100%;
+    }
+    .ambedkar-hero-img {
+      width: clamp(120px, 25vw, 180px);
+      height: clamp(120px, 25vw, 180px);
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--gold);
+      margin-bottom: 1.2rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      background: #fff;
+    }
+    .hero-content h1 {
+      font-size: clamp(1.8rem, 6vw, 3.2rem);
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+    }
+    .hero-content p {
+      font-size: clamp(1rem, 4vw, 1.3rem);
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Container - Fluid Width */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem 1.2rem;
+      width: 100%;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 700;
+      border-left: 5px solid var(--primary);
+      padding-left: 1rem;
+      margin: 1.5rem 0 1.2rem 0;
+    }
+
+    /* Stats Cards - Responsive */
+    .stats-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+    .stat-card {
+      background: var(--deep-blue);
+      color: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 600;
+      font-size: clamp(0.85rem, 3.5vw, 1rem);
+      flex: 1;
+      min-width: 140px;
+      justify-content: center;
+    }
+    .stat-card i {
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+    }
+
+    /* Gallery Grid - Responsive */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .photo-card {
+      background: var(--card-white);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.25s ease;
+      border: 1px solid var(--border-light);
+    }
+    .photo-card:hover {
+      transform: translateY(-5px);
+    }
+    .photo-card img {
+      width: 100%;
+      height: clamp(180px, 30vw, 220px);
+      object-fit: cover;
+      background: #e3d9ce;
+    }
+    .photo-info {
+      padding: 0.8rem;
+    }
+    .photo-info h3 {
+      font-size: clamp(1rem, 4vw, 1.2rem);
+    }
+    .year-badge {
+      background: var(--primary);
+      color: white;
+      padding: 0.2rem 0.8rem;
+      border-radius: 2rem;
+      font-size: 0.75rem;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    /* Member Directory Grid - Responsive */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .member-card {
+      background: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: all 0.2s;
+      border: 1px solid #eee5db;
+    }
+    .member-card:hover {
+      transform: translateY(-4px);
+    }
+    .member-photo {
+      width: 100%;
+      height: clamp(180px, 30vw, 220px);
+      object-fit: cover;
+      background: #d9cfc0;
+    }
+    .member-details {
+      padding: 1rem;
+    }
+    .member-details h3 {
+      font-size: clamp(1.1rem, 4vw, 1.3rem);
+      margin-bottom: 0.3rem;
+    }
+    .member-phone {
+      color: var(--primary);
+      font-weight: 600;
+      margin: 0.5rem 0;
+      font-size: clamp(0.85rem, 3vw, 1rem);
+    }
+    .member-phone i {
+      margin-right: 0.4rem;
+    }
+    
+    /* Special Profile Card (Satya) - Responsive */
+    .special-profile {
+      background: linear-gradient(135deg, #fff5e6, #ffe6d5);
+      border: 2px solid var(--gold);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+    }
+    .special-img {
+      width: clamp(100px, 25vw, 150px);
+      height: clamp(100px, 25vw, 150px);
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--gold);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .special-info {
+      flex: 1;
+    }
+    .special-info h2 {
+      color: var(--primary-dark);
+      font-size: clamp(1.3rem, 5vw, 1.8rem);
+    }
+    .special-badge {
+      background: var(--gold);
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      font-size: clamp(0.75rem, 3vw, 0.85rem);
+    }
+
+    /* Upload Section - Responsive */
+    .upload-area {
+      background: white;
+      border-radius: 1.2rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      border: 1px solid var(--border-light);
+    }
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .form-group {
+      flex: 1;
+      min-width: 180px;
+    }
+    .form-group label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.4rem;
+      font-size: clamp(0.85rem, 3vw, 0.95rem);
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.7rem 0.8rem;
+      border: 1px solid #d6cdc0;
+      border-radius: 1rem;
+      font-family: inherit;
+      font-size: clamp(0.85rem, 3vw, 1rem);
+    }
+    .btn {
+      background: var(--primary);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: clamp(0.85rem, 3vw, 1rem);
+      min-width: 140px;
+    }
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: scale(1.02);
+    }
+
+    /* Year Filter Pills - Responsive */
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+      justify-content: center;
+    }
+    .pill {
+      background: #e8dfd4;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 3rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: clamp(0.8rem, 3vw, 0.9rem);
+    }
+    .pill.active, .pill:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Footer - Responsive */
+    footer {
+      background: #0a2f44;
+      color: #ddd;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    footer p {
+      font-size: clamp(0.8rem, 3vw, 0.9rem);
+    }
+    .developer-credit {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #2c5a6e;
+      font-size: clamp(0.75rem, 2.8vw, 0.9rem);
+      color: #ffd966;
+    }
+
+    /* Toast Message */
+    .toast-msg {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      left: auto;
+      background: var(--deep-blue);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      z-index: 2000;
+      display: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      max-width: 90%;
+      text-align: center;
+    }
+
+    /* ========== RESPONSIVE BREAKPOINTS ========== */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0.8rem 1rem;
+      }
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1rem 0 0.5rem 0;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-links a {
+        padding: 0.5rem;
+        width: 100%;
+        text-align: center;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .container {
+        padding: 1rem;
+      }
+      .stats-row {
+        gap: 0.8rem;
+      }
+      .stat-card {
+        min-width: calc(50% - 0.8rem);
+        padding: 0.7rem 0.5rem;
+        font-size: 0.8rem;
+      }
+      .special-profile {
+        flex-direction: column;
+        text-align: center;
+      }
+      .special-info {
+        text-align: center;
+      }
+      .gallery-grid, .members-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+      }
+      .form-row {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-row {
+        flex-direction: column;
+      }
+      .stat-card {
+        min-width: 100%;
+        justify-content: flex-start;
+      }
+      .gallery-grid, .members-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding: 2rem 1rem;
+      }
+      .section-title {
+        font-size: 1.3rem;
+      }
+      .filter-pills {
+        gap: 0.5rem;
+      }
+      .pill {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+      }
+      .toast-msg {
+        bottom: 15px;
+        right: 15px;
+        left: 15px;
+        width: auto;
+        text-align: center;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .container {
+        padding: 2rem;
+      }
+      .gallery-grid, .members-grid {
+        gap: 2rem;
+      }
+    }
+
+    /* Touch-friendly improvements for mobile */
+    @media (hover: none) and (pointer: coarse) {
+      .btn, .pill, .nav-links a, .member-card, .photo-card {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .btn:active, .pill:active {
+        transform: scale(0.98);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo"><h1>🕊️ Dr. B R Ambedkar <span> Village Bautha</span></h1></div>
+  <div class="menu-toggle" id="mobileToggle"><i class="fas fa-bars"></i></div>
+  <ul class="nav-links" id="navMenu">
+    <li><a href="#" data-page="home" class="nav-link active">🏠 Home</a></li>
+    <li><a href="#" data-page="about" class="nav-link">📖 About Ambedkar</a></li>
+    <li><a href="#" data-page="gallery" class="nav-link">📸 Jayanti Gallery</a></li>
+    <li><a href="#" data-page="members" class="nav-link">👥 Village Members</a></li>
+    <li><a href="#" data-page="upload" class="nav-link">📤 Upload Photos</a></li>
+    <li><a href="#" data-page="speeches" class="nav-link">🎙️ Teachings</a></li>
+    <li><a href="#" data-page="committee" class="nav-link">🤝 Committee</a></li>
+  </ul>
+</nav>
+
+<main id="appRoot"></main>
+<footer>
+  <p><i class="fas fa-dharmachakra"></i> Jai Bhim - Jai Constitution <i class="fas fa-dharmachakra"></i></p>
+  <p>Dr. B.R. Ambedkar | Annual Jayanti Celebration | Village Digital Archive</p>
+  <div class="developer-credit">
+    <i class="fas fa-code"></i> Developed by <strong> Satya </strong> | Dedicated to Dr. B R Ambedkar's Vision & Our Village Bautha | © 2026 Village Bautha, Gorakhpur 273405
+  </div>
+</footer>
+<div id="globalToast" class="toast-msg">✅ Success</div>
+
+<script>
+  // --------------------------- VILLAGE DETAILS (EXTENSIVE) ---------------------------
+  const villageName = "Bautha, Gorakhpur District";
+  const villagePost = "Post Office: Bautha, Gorakhpur - 273405";
+  const villageDescription = "Our village Bautha is a model of social harmony with a grand statue of Dr. B.R. Ambedkar. Spread across 550 acres with 1,800+ residents, we celebrate Ambedkar Jayanti every year with rallies, cultural events, and community feasts. active youth groups. Located in Gorakhpur district, Uttar Pradesh, we take pride in our rich cultural heritage and commitment to Dr. B R Ambedkar's ideals of equality, liberty, and fraternity.";
+  
+  // Dr. Ambedkar's photo URL (official statue & portrait)
+  const ambedkarPhotoUrl = "https://m.media-amazon.com/images/I/819MGINyxDL._AC_UF894,1000_QL80_.jpg";
+  
+  // --------------------------- SPECIAL PROFILE (SATYA - YOUR DETAILS) ---------------------------
+  const specialPerson = {
+    name: "Satya",
+    fullName: "Satya ",
+    mobile: "+91 7753871044",
+    photo: "satya.image.jpeg",
+    role: "Village Digital Secretary & Website Developer",
+    bio: "Passionate about Dr. B R Ambedkar's ideals and digital preservation of our village heritage. Manages this archive and coordinates annual Jayanti media coverage. Dedicated to spreading Baba Saheb's message across Gorakhpur region."
+  };
+  
+  // --------------------------- COMPLETE VILLAGE MEMBERS DATABASE ---------------------------
+  let villageMembers = [
+    { id: 1, name: "Narendra", mobile: "+91 98765 4****", photo: "narenrda.jpeg", role: "Sarpanch (Village Head)" },
+    { id: 2, name: "Anamol", mobile: "+91 87654 3****", photo: "mole.jpeg", role: "Ward Member" },
+    { id: 3, name: "Rajnath", mobile: "+91 99887 7****", photo: "raj.jpeg", role: "Youth Leader" },
+    { id: 4, name: "Dhiraj Jatav", mobile: "+91 78965 4****", photo: "dhiraj.jpeg", role: "School Teacher" },
+    { id: 5, name: "Prem", mobile: "+91 94123 4****", photo: "prem.jpeg", role: "Farmer & Social Worker" },
+    { id: 6, name: "Nikhil", mobile: "+91 90234 5****", photo: "nikhil.jpeg", role: "Self-help Group Leader" },
+    { id: 7, name: "Balindra", mobile: "+91 76543 2****", photo: "balindra copy.jpeg", role: "Shopkeeper & Donor" },
+    // { id: 8, name: "Vishal", mobile: "+91 81234 5****", photo: "jpg", role: "Anganwadi Worker" },
+    // { id: 9, name: "Vijay Kumar", mobile: "+91 98765 1****", photo: "jpg", role: "Social Activist" },
+    // { id: 10, name: "Ravindra", mobile: "+91 87650 9****", photo: ".jpg", role: "Mahila Mandal President" },
+    // { id: 11, name: "Durgesh", mobile: "+91 99880 7****", photo: ".jpg", role: "Retired Teacher" },
+    // { id: 12, name: "Gulela", mobile: "+91 88990 1****", photo: "jpg", role: "Nurse" },
+    // { id: 13, name: "Vikendra", mobile: "+91 70123 4****", photo: "jpg", role: "Contractor" },
+    // { id: 14, name: "Santraj", mobile: "+91 96325 8****", photo: "jpg", role: "Gram Sabha Member" },
+    // { id: 15, name: "Duvijay", mobile: "+91 85476 3****", photo: "jpg", role: "Driver & Volunteer" },
+    // { id: 16, name: "Harendra", mobile: "+91 78945 6****", photo: ".jpg", role: "College Student" },
+    // { id: 17, name: "Prince", mobile: "+91 97531 8****", photo: ".jpg", role: "Milk Vendor" },
+    // { id: 18, name: "abc", mobile: "+91 88776 5****", photo: "jpg", role: "Photographer" },
+    // { id: 19, name: "123", mobile: "+91 99887 6****", photo: ".jpg", role: "Village Accountant" },
+    // { id: 20, name: "xyz", mobile: "+91 87654 3****", photo: "jpg", role: "Health Worker" }
+  ];
+  
+  // Add Satya to members list
+  const existingSatya = villageMembers.find(m => m.name === "Satya" || m.name === "Satya ");
+  if(!existingSatya) {
+    villageMembers.unshift({ id: 999, name: "Satya ", mobile: specialPerson.mobile, photo: specialPerson.photo, role: specialPerson.role });
+  } else {
+    existingSatya.photo = specialPerson.photo;
+    existingSatya.role = specialPerson.role;
+    existingSatya.mobile = specialPerson.mobile;
+  }
+  
+  function addNewMember(name, mobile, photoUrl) {
+    const newId = villageMembers.length + 1;
+    villageMembers.push({ id: newId, name, mobile, photo: photoUrl || "satya.image.jpeg", role: "Villager" });
+    showToast(`✅ New member ${name} added to directory!`);
+    if(currentPage === "members") renderCurrentPage();
+  }
+  
+  // --------------------------- PHOTO GALLERY (Yearly Jayanti Photos) ---------------------------
+  const officialGallery = {
+    2018: [
+      { title: "Jayanti 2018 - First Grand Celebration", img: "https://placehold.co/600x400/e5c896/1e2f3a?text=2018+Inaugural", desc: "Community gathering at statue" },
+      { title: "Children's Rally 2018", img: "https://placehold.co/600x400/e2c07a/1e2f3a?text=2018+Children", desc: "School kids with flags" }
+    ],
+    2019: [
+      { title: "Ambedkar Jayanti 2019 - Grand Rally", img: "https://placehold.co/600x400/e5c896/1e2f3a?text=2019+Rally", desc: "Villagers took out a massive procession" },
+      { title: "Floral Tribute at Statue", img: "https://placehold.co/600x400/e2c07a/1e2f3a?text=2019+Tribute", desc: "Elderly offering flowers" },
+      { title: "Cultural Night", img: "https://placehold.co/600x400/ddbb88/1e2f3a?text=2019+Culture", desc: "Folk dances" }
+    ],
+    2020: [
+      { title: "Jayanti 2020 - Social Distancing Event", img: "https://placehold.co/600x400/e9cb99/1e2f3a?text=2020+Event", desc: "COVID protocols followed" },
+      { title: "Lighting of Lamps", img: "https://placehold.co/600x400/dbbd89/1e2f3a?text=2020+Lamps", desc: "Evening prayer" }
+    ],
+    2021: [
+      { title: "2021 - Cultural Performances", img: "https://placehold.co/600x400/eace9e/1e2f3a?text=2021+Culture", desc: "Traditional folk dances" },
+      { title: "Youth Speech Competition", img: "https://placehold.co/600x400/e0bf86/1e2f3a?text=2021+Speech", desc: "Youngsters spoke on equality" },
+      { title: "Community Feast", img: "https://placehold.co/600x400/dbbc86/1e2f3a?text=2021+Feast", desc: "Mass meal organized" }
+    ],
+    2022: [
+      { title: "Jayanti 2022 - Padayatra", img: "https://placehold.co/600x400/e9cf99/1e2f3a?text=2022+Padayatra", desc: "Foot march from village to memorial" },
+      { title: "Constitution Pledge", img: "https://placehold.co/600x400/f3daaa/1e2f3a?text=2022+Pledge", desc: "Reading Preamble" },
+      { title: "Bhim Geet", img: "https://placehold.co/600x400/e9cb95/1e2f3a?text=2022+BhimGeet", desc: "Songs of inspiration" }
+    ],
+    2023: [
+      { title: "2023 Grand Celebration", img: "https://placehold.co/600x400/f1e0b5/1e2f3a?text=2023+Grand", desc: "Thousands attended" },
+      { title: "Ambedkar Ideology Seminar", img: "https://placehold.co/600x400/e6cf9b/1e2f3a?text=2023+Seminar", desc: "Guest speakers" },
+      { title: "Dhamma Diksha Ceremony", img: "https://placehold.co/600x400/dbc68f/1e2f3a?text=2023+Diksha", desc: "Buddhist initiation" }
+    ],
+    2024: [
+      { title: "132nd Jayanti 2024 - Historic", img: "https://placehold.co/600x400/f5e2b9/1e2f3a?text=2024+Historic", desc: "Huge crowd from nearby villages" },
+      { title: "Garlanding Ceremony", img: "https://placehold.co/600x400/ebd1a0/1e2f3a?text=2024+Garland", desc: "Chief Minister's representative" },
+      { title: "Tableau on Dr. Ambedkar's Life", img: "https://placehold.co/600x400/e6cf99/1e2f3a?text=2024+Tableau", desc: "Artistic display" },
+      { title: "Community Lunch", img: "https://placehold.co/600x400/f2dcab/1e2f3a?text=2024+Lunch", desc: "Langar for all" }
+    ],
+    2025: [
+      { title: "133rd Jayanti 2025 - Mega Event", img: "https://placehold.co/600x400/f7e7be/1e2f3a?text=2025+Mega", desc: "Record participation by Satya Nagar villagers" },
+      { title: "Digital Archive Launch by Satya", img: "https://placehold.co/600x400/f3ddab/1e2f3a?text=2025+Website+Launch", desc: "Website inaugurated by village head" },
+      { title: "Award Ceremony", img: "https://placehold.co/600x400/e8cf93/1e2f3a?text=2025+Awards", desc: "Outstanding villagers honored" },
+      { title: "Torch Rally Evening", img: "https://placehold.co/600x400/f0ddad/1e2f3a?text=2025+Torch", desc: "Unity march through Gorakhpur region" }
+    ]
+  };
+  
+  let userPhotos = [];
+  
+  function getAllPhotos(yearFilter = "all") {
+    let combined = [];
+    if(yearFilter === "all") {
+      for(let y in officialGallery) combined.push(...officialGallery[y].map(p => ({...p, year: y, type: "official"})));
+      combined.push(...userPhotos.map(p => ({...p, type: "user"})));
+    } else {
+      let off = (officialGallery[yearFilter] || []).map(p => ({...p, year: yearFilter, type: "official"}));
+      let usr = userPhotos.filter(p => p.year == yearFilter);
+      combined = [...off, ...usr];
+    }
+    return combined;
+  }
+  
+  function getAllYearsFromGallery() {
+    let years = new Set(Object.keys(officialGallery));
+    userPhotos.forEach(p => years.add(p.year.toString()));
+    return Array.from(years).sort((a,b)=>b-a);
+  }
+  
+  let currentPage = "home";
+  let currentYearFilter = "all";
+  
+  function showToast(msg) {
+    const toast = document.getElementById("globalToast");
+    toast.innerText = msg;
+    toast.style.display = "block";
+    setTimeout(() => toast.style.display = "none", 2500);
+  }
+  
+  // RENDER FUNCTIONS
+  function renderHome() {
+    const totalPhotos = getAllPhotos("all").length;
+    return `
+      <div class="hero">
+        <div class="hero-content">
+          <img class="ambedkar-hero-img" src="${ambedkarPhotoUrl}" alt="Dr. B.R. Ambedkar" onerror="this.src='https://m.greaterkashmir.com/sortd-service/imaginary/v22-01/jpg/large/high?url=Z3JlYXRlcmthc2htaXItc29ydGQtcHJvLXByb2Qtc29ydGQvbWVkaWE3OTUwMWNkMC1iNGFkLTExZWYtYWVlOC1iOTlkNTYzOWY4MzkuanBn'">
+          <h1>🕊️ Dr. B.R. Ambedkar </h1>
+          <p>Bautha, Gorakhpur | Honoring the Architect of Indian Constitution</p>
+          <p style="font-size: clamp(0.9rem, 3.5vw, 1rem); margin-top: 0.8rem;">"Educate, Agitate, Organize — With justice on our side, we shall win."</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="stats-row">
+          <div class="stat-card"><i class="fas fa-images fa-2x"></i> ${totalPhotos}+ Jayanti Photos</div>
+          <div class="stat-card"><i class="fas fa-users fa-2x"></i> ${villageMembers.length} Registered Members</div>
+          <div class="stat-card"><i class="fas fa-calendar-alt fa-2x"></i> 8+ Years of Celebration</div>
+          <div class="stat-card"><i class="fas fa-map-marker-alt fa-2x"></i> Bautha, Gorakhpur, UP</div>
+        </div>
+        
+        <!-- SPECIAL PROFILE SECTION (SATYA) -->
+        <div class="special-profile">
+          <img class="special-img" src="${specialPerson.photo}" alt="${specialPerson.name}" onerror="this.src='satya.image.jpeg'">
+          <div class="special-info">
+            <h2><i class="fas fa-crown"></i> ${specialPerson.fullName || specialPerson.name}</h2>
+            <p><i class="fas fa-phone-alt"></i> <strong>${specialPerson.mobile}</strong></p>
+            <p><i class="fas fa-badge"></i> ${specialPerson.role}</p>
+            <p>${specialPerson.bio}</p>
+            <span class="special-badge"><i class="fas fa-star"></i> Village Digital Secretary & Developer</span>
+          </div>
+        </div>
+        
+        <div class="upload-area" style="background:#fff4ea;">
+          <h2>📢 About Our Village - ${villageName}</h2>
+          <p>${villageDescription}</p>
+          <p><strong>📍 Post Office & Location:</strong> ${villagePost}</p>
+          <p><strong>🏛️ Memorial Features:</strong> 6-ft tall bronze statue of Dr. B R Ambedkar,  a community hall where monthly meetings are held. The memorial was established in 2015 with contributions from every family in Bautha.</p>
+          <p><strong>🌾 Village Culture:</strong> Our village is known for its communal harmony, annual Ambedkar Jayanti celebrations, and active participation in spreading Dr. B R Ambedkar's teachings across village-Bautha, Gorakhpur district.</p>
+        </div>
+        
+        <h2 class="section-title">🌟 Latest Jayanti Highlights (2026)</h2>
+        <div class="gallery-grid">
+          ${(officialGallery[2026] || []).slice(0,3).map(ph => `<div class="photo-card"><img src="${ph.img}" alt="${ph.title}"><div class="photo-info"><h3>${ph.title}</h3><p>${ph.desc}</p><span class="year-badge">2026</span></div></div>`).join('')}
+        </div>
+        <div style="text-align:center; margin:1.5rem 0"><a href="#" data-page="gallery" class="btn nav-link">View Full Gallery →</a></div>
+      </div>
+    `;
+  }
+  
+  function renderAbout() {
+    return `
+      <div class="container">
+        <h1 class="section-title">📖 Dr. B.R. Ambedkar: Life & Legacy</h1>
+        <div class="upload-area">
+          <div style="text-align:center; margin-bottom:1.5rem;">
+            <img src="${ambedkarPhotoUrl}" style="width:clamp(120px, 25vw, 180px); border-radius:50%; border:3px solid var(--gold);" alt="Dr. B R Ambedkar">
+          </div>
+          <h3>⚡ Architect of Indian Constitution</h3>
+          <p>Born: April 14, 1891. He was a jurist, economist, social reformer who fought against caste discrimination. He chaired the Drafting Committee of the Constitution of India. His message "Educate, Organize, Agitate" continues to inspire millions.</p>
+          <h3>📜 Key Contributions</h3>
+          <p>• Framed the Indian Constitution ensuring equality, liberty, fraternity<br>• Mahad Satyagraha for drinking water rights<br>• Converted to Buddhism along with 500,000 followers in 1956<br>• Author of "Annihilation of Caste" and "The Buddha and His Dhamma"</p>
+          <h3>🏛️ Our Village  Bautha , Gorakhpur</h3>
+          <p>The Ambedkar statue in ${villageName} Bautha was installed in 2015 with collective effort. Every year on April 14th, the entire village gathers to offer floral tributes, organize rallies, and distribute food. This website, developed by Satya, preserves memories for future generations.</p>
+        </div>
+      </div>
+    `;
+  }
+  
+  function renderGallery() {
+    const photos = getAllPhotos(currentYearFilter);
+    const years = getAllYearsFromGallery();
+    return `
+      <div class="container">
+        <h1 class="section-title">📸 Annual Ambedkar Jayanti Photo Gallery - Bautha</h1>
+        <div class="filter-pills" id="yearPills">
+          <button class="pill ${currentYearFilter === 'all' ? 'active' : ''}" data-year="all">All Years</button>
+          ${years.map(y => `<button class="pill ${currentYearFilter == y ? 'active' : ''}" data-year="${y}">${y}</button>`).join('')}
+        </div>
+        <div class="gallery-grid">
+          ${photos.length === 0 ? '<p style="grid-column:1/-1;">No photos yet. Upload new ones!</p>' : photos.map(ph => `
+            <div class="photo-card">
+              <img src="${ph.imgUrl || ph.img}" onerror="this.src='satya.image.jpeg'">
+              <div class="photo-info"><h3>${ph.title}</h3><p>${ph.desc || ''}</p><span class="year-badge">${ph.year}</span> ${ph.type === 'user' ? '<i class="fas fa-upload" style="margin-left:6px;"></i>' : ''}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+  
+  function renderMembers() {
+    return `
+      <div class="container">
+        <h1 class="section-title">👥 Complete Village Members Directory - ${villageName} Bautha, Gorakhpur</h1>
+        <p style="margin-bottom: 1rem;">Total ${villageMembers.length} registered villagers | Contact details & photos | Post: ${villagePost}</p>
+        <div class="members-grid">
+          ${villageMembers.map(member => `
+            <div class="member-card">
+              <img class="member-photo" src="${member.photo}" onerror="this.src='satya.image.jpeg'" alt="${member.name}">
+              <div class="member-details">
+                <h3>${member.name} ${member.name === "Satya " ? '<i class="fas fa-crown" style="color:#e6b422;"></i>' : ''}</h3>
+                <div class="member-phone"><i class="fas fa-phone-alt"></i> ${member.mobile}</div>
+                <p><i class="fas fa-tag"></i> ${member.role || "Villager"}</p>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <div class="upload-area" style="margin-top:2rem;">
+          <h3>➕ Add New Villager (Admin / Committee)</h3>
+          <form id="addMemberForm">
+            <div class="form-row">
+              <div class="form-group"><label>Full Name *</label><input type="text" id="memberName" placeholder="e.g., Satya " required></div>
+              <div class="form-group"><label>Mobile Number *</label><input type="tel" id="memberMobile" placeholder="+91 98765 43210" required></div>
+            </div>
+            <div class="form-group"><label>Photo URL (optional)</label><input type="text" id="memberPhoto" placeholder="https://... or leave default"></div>
+            <button type="submit" class="btn"><i class="fas fa-user-plus"></i> Add Member to Directory</button>
+          </form>
+        </div>
+      </div>
+    `;
+  }
+  
+  function renderUpload() {
+    const yearsList = getAllYearsFromGallery();
+    return `
+      <div class="container">
+        <h1 class="section-title">📤 Upload Jayanti Photos (Yearly Archive)</h1>
+        <div class="upload-area">
+          <p><i class="fas fa-database"></i> Upload photos from any Ambedkar Jayanti celebration in Bautha, Gorakhpur. These will appear in the gallery instantly.</p>
+          <form id="photoUploadForm">
+            <div class="form-row">
+              <div class="form-group"><label>Select Year *</label><select id="photoYear" required><option value="">-- Choose Year --</option>${yearsList.map(y=>`<option value="${y}">${y}</option>`).join('')}<option value="2026">2026 (Upcoming)</option></select></div>
+              <div class="form-group"><label>Photo Title *</label><input type="text" id="photoTitle" placeholder="e.g., 2026 Grand Rally" required></div>
+            </div>
+            <div class="form-group"><label>Description (Event details)</label><textarea id="photoDesc" rows="2"></textarea></div>
+            <div class="form-group"><label>Image URL *</label><input type="text" id="photoUrl" placeholder="satya.image.jpeg"></div>
+            <button type="submit" class="btn"><i class="fas fa-cloud-upload-alt"></i> Add to Gallery</button>
+          </form>
+          <p style="margin-top: 1rem;">✨ All uploaded photos enrich our village digital heritage. Developed by Satya for the community.</p>
+        </div>
+      </div>
+    `;
+  }
+  
+  function renderSpeeches() {
+    return `
+      <div class="container">
+        <h1 class="section-title">🎙️ Dr. B R Ambedkar's Inspiring Teachings</h1>
+        <div class="upload-area">
+          <h3>✍️ Famous Quotes & Speeches</h3>
+          <p><strong>“I measure the progress of a community by the degree of progress which women have achieved.”</strong></p>
+          <p><strong>“Caste is not a physical object like a wall of bricks or a line of barbed wire which prevents the Hindus from co-mingling and which has, therefore, to be pulled down. Caste is a notion, a state of the mind.”</strong> — Annihilation of Caste</p>
+          <p><strong>“Constitution is not a mere lawyers' document, it is a vehicle of Life, and its spirit is always the spirit of Age.”</strong></p>
+          <p><strong>“Educate, Agitate, Organize — have faith in yourself. With justice on our side, I do not see how we can lose.”</strong></p>
+          <hr>
+          <h3>🕯️ Last Speech in Constituent Assembly (1949)</h3>
+          <p>“If we wish to maintain democracy not merely in form, but in fact, we must hold fast to constitutional methods of achieving our social and economic objectives.”</p>
+          <hr>
+          <h3>📢 Message from Bautha, Gorakhpur</h3>
+          <p>Every year on April 14th, we gather at the Ambedkar statue to recite these teachings and pledge to uphold the values of liberty, equality, and fraternity.</p>
+        </div>
+      </div>
+    `;
+  }
+  
+  function renderCommittee() {
+    return `
+      <div class="container">
+        <h1 class="section-title">🤝 Village Ambedkar Memorial Committee - ${villageName} Bautha, Gorakhpur</h1>
+        <div class="upload-area">
+          <h3>Committee Members (2025-26)</h3>
+          <p><strong>President:</strong> Satya - +91 98765 4****</p>
+          <p><strong>Secretary:</strong> Rajnath - +91 87654 3****</p>
+          <p><strong>Treasurer:</strong> Suraj - +91 76543 2****</p>
+          <p><strong>Event Coordinator:</strong> Balindra - +91 99887 7****</p>
+          <p><strong>Cultural Head:</strong> Vishal - +91 90234 5****</p>
+          <p><strong>Digital Secretary & Developer:</strong> Satya  - ${specialPerson.mobile}</p>
+          <h3>Contact Information</h3>
+          <p>📍 ${villageName}Bautha, ${villagePost}, Gorakhpur District , Uttar Pradesh (India)<br>📧 ambedkar.satya@gmail.com<br>📞 Helpline: +91 94123 4****</p>
+          <p>All villagers are invited to participate in the annual Jayanti planning meetings held every April at the Ambedkar Memorial Hall.</p>
+        </div>
+      </div>
+    `;
+  }
+  
+  function renderCurrentPage() {
+    const root = document.getElementById("appRoot");
+    if(currentPage === "home") root.innerHTML = renderHome();
+    else if(currentPage === "about") root.innerHTML = renderAbout();
+    else if(currentPage === "gallery") root.innerHTML = renderGallery();
+    else if(currentPage === "members") root.innerHTML = renderMembers();
+    else if(currentPage === "upload") root.innerHTML = renderUpload();
+    else if(currentPage === "speeches") root.innerHTML = renderSpeeches();
+    else if(currentPage === "committee") root.innerHTML = renderCommittee();
+    else root.innerHTML = renderHome();
+    
+    if(currentPage === "gallery") {
+      document.querySelectorAll(".pill").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          currentYearFilter = btn.getAttribute("data-year");
+          renderCurrentPage();
+        });
+      });
+    }
+    if(currentPage === "members") {
+      const form = document.getElementById("addMemberForm");
+      if(form) {
+        form.onsubmit = (e) => {
+          e.preventDefault();
+          const name = document.getElementById("memberName").value.trim();
+          const mobile = document.getElementById("memberMobile").value.trim();
+          let photo = document.getElementById("memberPhoto").value.trim();
+          if(!name || !mobile) { alert("Name and mobile are required"); return; }
+          if(!photo) photo = "https://randomuser.me/api/portraits/lego/2.jpg";
+          addNewMember(name, mobile, photo);
+          renderCurrentPage();
+        };
+      }
+    }
+    if(currentPage === "upload") {
+      const upForm = document.getElementById("photoUploadForm");
+      if(upForm) {
+        upForm.onsubmit = (e) => {
+          e.preventDefault();
+          const year = document.getElementById("photoYear").value;
+          const title = document.getElementById("photoTitle").value.trim();
+          const desc = document.getElementById("photoDesc").value;
+          let imgUrl = document.getElementById("photoUrl").value.trim();
+          if(!year || !title) { alert("Year and Title required"); return; }
+          if(!imgUrl) imgUrl = "https://placehold.co/600x400/e3cfaa/2c3e2f?text=New+Jayanti+Photo";
+          userPhotos.push({ year, title, desc, imgUrl });
+          showToast(`✅ Photo "${title}" (${year}) added to gallery!`);
+          upForm.reset();
+        };
+      }
+    }
+    
+    document.querySelectorAll(".nav-link").forEach(link => {
+      const pg = link.getAttribute("data-page");
+      if(pg === currentPage) link.classList.add("active");
+      else link.classList.remove("active");
+      link.onclick = (e) => {
+        e.preventDefault();
+        const target = link.getAttribute("data-page");
+        if(target) { currentPage = target; if(target !== "gallery") currentYearFilter = "all"; renderCurrentPage(); window.scrollTo(0,0); }
+      };
+    });
+  }
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    renderCurrentPage();
+    const toggleBtn = document.getElementById("mobileToggle");
+    const navMenu = document.getElementById("navMenu");
+    if(toggleBtn) toggleBtn.addEventListener("click", () => navMenu.classList.toggle("active"));
+  });
+</script>
+</body>
+</html>
